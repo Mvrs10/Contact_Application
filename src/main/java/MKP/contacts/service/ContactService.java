@@ -36,7 +36,7 @@ import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 @Transactional(rollbackOn = Exception.class) // Safeguard if method throws exception
 @RequiredArgsConstructor
 public class ContactService {
-    private ContactRepo contactRepo;
+    private final ContactRepo contactRepo;
 
     public Page<Contact> getAllContacts(int page, int size){
         return contactRepo.findAll(PageRequest.of(page,size, Sort.by("name")));
@@ -54,7 +54,8 @@ public class ContactService {
         contactRepo.delete(contact);
     }
 
-    public String uploadPhoto(String id, MultipartFile file) {
+    public String uploadImg(String id, MultipartFile file) {
+        log.info("Saving profile picture for userId: " + id);
         Contact contact = getContactById(id);
         String photoUrl = saveImgFnc.apply(id, file);
         contact.setPhotoUrl(photoUrl);

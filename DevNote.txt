@@ -7,5 +7,14 @@ phonenumber
 status
 
 --Repo-- 
-To manage the context
-public interface Repo extends JpaRepository<ContextType, PrimaryKeyType> 
+Context Manager contract
+public interface Repo extends JpaRepository<ContextType, PrimaryKeyType>
+
+--Service--
+Define APIs
+
+--Controller--
+Serving APIs with REST
+
+--Application.yaml--
+Server Configuration MS SQL SERVER
