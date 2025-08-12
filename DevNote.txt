@@ -1,0 +1,11 @@
+--Context--
+name
+title
+email
+address
+phonenumber
+status
+
+--Repo-- 
+To manage the context
+public interface Repo extends JpaRepository<ContextType, PrimaryKeyType> 
